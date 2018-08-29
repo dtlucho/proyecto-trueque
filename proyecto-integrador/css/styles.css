@@ -1,0 +1,38 @@
+header {
+    padding: 154px 0 100px;
+  }
+  
+@media (min-width: 992px) {
+header {
+    padding: 156px 0 100px;
+}
+}
+
+section {
+padding: 150px 0;
+}
+
+  
+.bg-purple {
+    background-color: rgba(165, 24, 130, 1);
+}
+
+.font-white {
+    color: rgba(255, 255, 255, 1);
+}
+
+.nav-link {
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: rgba(158, 158, 158, 1);
+}
+
+.navbar-brand:hover {
+    color: rgba(158, 158, 158, 1);
+}
+
+.bg-home {
+    background-color: rgba(232, 232, 232, 1);
+}
