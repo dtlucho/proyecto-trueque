@@ -17,6 +17,10 @@ padding: 150px 0;
     background-color: rgba(165, 24, 130, 1);
 }
 
+.bg-white {
+    background-color: rgba(255, 255, 255, 1);
+}
+
 .font-white {
     color: rgba(255, 255, 255, 1);
 }
