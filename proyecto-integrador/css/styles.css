@@ -2,17 +2,10 @@ header {
     padding: 154px 0 100px;
   }
   
-@media (min-width: 992px) {
-header {
-    padding: 156px 0 100px;
-}
-}
-
 section {
 padding: 150px 0;
 }
-
-  
+ 
 .bg-purple {
     background-color: rgba(165, 24, 130, 1);
 }
@@ -92,3 +85,7 @@ padding: 150px 0;
 }
 .back { text-align: left; margin-top:10px;}
 .back a {color: #444444; font-size: 13px;text-decoration: none;}
+
+div button:hover {
+  background-color: rgba(125, 18, 98, 1);
+}
