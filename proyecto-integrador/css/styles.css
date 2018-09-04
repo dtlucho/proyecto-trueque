@@ -7,7 +7,7 @@ padding: 150px 0;
 }
  
 .bg-purple {
-    background-color:  rgba(125, 18, 98, 1);
+    background-color:  rgb(92, 14, 72);
 }
 
 .font-white {
@@ -49,5 +49,6 @@ div button:hover {
 }
 
 img {
-    border: 8px  #242222 solid;
+    border: 6px rgb(42, 39, 82) solid;
 }
+
