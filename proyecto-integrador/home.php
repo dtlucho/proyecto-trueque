@@ -21,13 +21,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link font-white" href="index.html">Inicio</a>
+                        <a class="nav-link font-white" href="home.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-white" href="signup.html">Registrate</a>
+                        <a class="nav-link font-white" href="signup.php">Registrate</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-white" href="login.html">Iniciar Sesión</a>
+                        <a class="nav-link font-white" href="login.php">Iniciar Sesión</a>
                     </li>
                 </ul>
             </div>

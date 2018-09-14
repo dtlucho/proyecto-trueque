@@ -1,3 +1,12 @@
+<?php
+require("funciones.php");
+
+if($_POST){
+    $errors = validate($_POST);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,20 +23,20 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-purple fixed-top">
         <div class="container">
-            <a class="navbar-brand font-white" href="index.html">TruequeYa</a>
+            <a class="navbar-brand font-white" href="home.php">TruequeYa</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link font-white" href="index.html">Inicio</a>
+                        <a class="nav-link font-white" href="home.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-white" href="signup.html">Registrate</a>
+                        <a class="nav-link font-white" href="signup.php">Registrate</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-white" href="login.html">Iniciar Sesión</a>
+                        <a class="nav-link font-white" href="login.php">Iniciar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -56,28 +65,28 @@
                                 <p class="hint-text">Crea tu cuenta, solo te tomara unos minutos.</p>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="first_name" placeholder="Nombre" required="required">
+                                <input type="text" class="form-control" name="name" placeholder="Nombre y Apellido" value="<?= isset($errors["name"]) ? "" : old("name") ?>">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="last_name" placeholder="Apellido" required="required">
+                                <input type="text" class="form-control" name="username" placeholder="Usuario" value="<?= isset($errors["username"]) ? "" : old("username") ?>">
                             </div>	
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+                                <input type="email" class="form-control" name="email" placeholder="Email" value="<?= isset($errors["email"]) ? "" : old("email") ?>">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" name="password" placeholder="Contraseña" required="required">
+                                <input type="password" class="form-control" name="password" placeholder="Contraseña">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" name="confirm_password" placeholder="Confirma Contraseña" required="required">
+                                <input type="password" class="form-control" name="cpassword" placeholder="Confirma Contraseña">
                             </div>        
                             <div class="form-group">
-                                <label class="checkbox-inline"><input type="checkbox" required="required"> Acepto los <a href="#">Terminos y condiciones</a> y las <a href="#">Politicas de Privacidad</a> de TruequeYa.</label>
+                                <label class="checkbox-inline"><input type="checkbox" name="confirm"> Acepto los <a href="#">Terminos y condiciones</a> y las <a href="#">Politicas de Privacidad</a> de TruequeYa.</label>
                             </div>
                             <div class="form-group col-10 m-auto col-sm-8 offset-sm-2">
                                 <button type="submit" class="btn btn-lg btn-block bg-purple font-white">Registarse</button>
                             </div>
                         </form>
-                        <div class="text-center my-3">Ya tenes una cuenta? <a href="login.html">Inicia sesion</a></div>
+                        <div class="text-center my-3">Ya tenes una cuenta? <a href="login.php">Inicia sesion</a></div>
                     </div>
                 </div>                        
                 </div>
