@@ -10,7 +10,7 @@
                     <a class="nav-link font-white" href="home.php">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-white" href="signup.php">Registrate</a>
+                    <a class="nav-link font-white" href="register.php">Registrate</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link font-white" href="login.php">Iniciar Sesión</a>
