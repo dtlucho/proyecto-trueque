@@ -1,3 +1,23 @@
+<?php
+
+require 'funciones.php';
+
+if(check()) {
+    redirect('perfil.php');
+}
+
+if($_POST) {
+    $usuario = dbEmailSearch($_POST['email']);
+    if($usuario !== null) {
+        if(password_verify($_POST['password'], $usuario['password']) == true) {
+            login($usuario);
+            redirect('perfil.php');
+        }
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -26,7 +46,7 @@
             <div class="row">
                 <div class="col-8 mx-auto bg-light rounded">
                     <div class="signup-form">
-                        <form action="" method="post">
+                        <form action="" method="post" enctype="multipart/form-data">
                             <div class="col-8 offset-2 text-center mt-3">
                                 <h2>Iniciar Sesion</h2>
                                 <p class="hint-text">Introduzca su correo y contraseña.</p>
