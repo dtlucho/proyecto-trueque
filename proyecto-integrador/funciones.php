@@ -135,5 +135,46 @@ function saveUser($user)
     file_put_contents('users.json', $jsonUser . PHP_EOL, FILE_APPEND);
 }
 
+function dbConnect()
+{
+    $db = file_get_contents('users.json');
+    $arr = explode(PHP_EOL, $db);
+    array_pop($arr);
+
+    foreach($arr as $user) {
+        $usersArray[] = json_decode($user, true);
+    }
+
+    return $usersArray;
+
+}
+
+function dbEmailSearch($email)
+{
+    $users = dbConnect();
+    foreach($users as $user) {
+        if($user['email'] === $email) {
+            return $user;
+        }
+    }
+    return null;
+}
+
+function login($user)
+{
+    $_SESSION['email'] = $user['email'];
+    setcookie('email', $user['email'], time() + 3600 * 24 * 7, "/");
+}
+
+function logout()
+{
+    if(!isset($_SESSION)) {
+        session_start();
+    }
+    session_destroy();
+    setcookie('email', null, time() -1);
+    redirect('register.php');
+
+}
 
 ?>
