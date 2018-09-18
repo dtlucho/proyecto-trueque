@@ -4,8 +4,11 @@ require("funciones.php");
 if($_POST){
     $errors = validate($_POST);
     $user = createUser($_POST);
-
+    
+   
+    
     if($_FILES['avatar']['error'] == 0) {
+        
         $avatarErrors = validateAvatar($_POST);
         $usuario['avatar'] = photoPath($_POST);
         
@@ -15,7 +18,8 @@ if($_POST){
     }
 
     if(count($errors) == 0) {  
-        saveUser($usuario);
+
+        saveUser($user);
         redirect('login.php');
     }
 
@@ -50,7 +54,7 @@ if($_POST){
             <div class="row">
                 <div class="col-8 mx-auto bg-light rounded">
                     <div class="signup-form">
-                        <form action="" method="post">
+                        <form action="" method="post" enctype="multipart/form-data">
                             <div class="col-8 offset-sm-2 text-center my-3">
                                 <h2>Registrate</h2>
                                 <p class="hint-text">Crea tu cuenta, solo te tomara unos minutos.</p>
