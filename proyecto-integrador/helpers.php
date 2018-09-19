@@ -21,7 +21,7 @@ function redirect($url)
 
 function check()
 {
-    return isset($_SESSION['username']);
+    return isset($_SESSION['email']);
 }
 
 function guest()
@@ -29,7 +29,15 @@ function guest()
     return !check();
 }
 
-function checkRole()
+function checkRole($email)
 {
-    // ...
+    // 1 = Usuario comun
+    // 2 = Admin
+    // 3 = Super Admin
+    $user = dbEmailSearch($email);
+    if($user['role'] == 2) {
+        return true;
+    } else {
+        return false;
+    }
 }

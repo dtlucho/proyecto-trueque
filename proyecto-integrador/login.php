@@ -3,7 +3,7 @@
 require 'funciones.php';
 
 if(check()) {
-    redirect('perfil.php');
+    redirect('home.php');
 }
 
 if($_POST) {
@@ -11,7 +11,7 @@ if($_POST) {
     if($usuario !== null) {
         if(password_verify($_POST['password'], $usuario['password']) == true) {
             login($usuario);
-            redirect('perfil.php');
+            redirect('home.php');
         }
     }
 }

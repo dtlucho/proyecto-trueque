@@ -1,3 +1,12 @@
+<?php 
+
+require 'funciones.php';
+
+?>
+
+
+
+
 <!DOCTYPE html>
 
 <html lang="en">

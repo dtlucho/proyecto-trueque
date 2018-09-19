@@ -135,13 +135,14 @@ function saveUser($user)
     file_put_contents('users.json', $jsonUser . PHP_EOL, FILE_APPEND);
 }
 
+
 function dbConnect()
 {
-    $db = file_get_contents('users.json');
-    $arr = explode(PHP_EOL, $db);
-    array_pop($arr);
+    $database = file_get_contents('users.json');
+    $array = explode(PHP_EOL, $database);
+    array_pop($array);
 
-    foreach($arr as $user) {
+    foreach($array as $user) {
         $usersArray[] = json_decode($user, true);
     }
 
@@ -160,11 +161,13 @@ function dbEmailSearch($email)
     return null;
 }
 
+
 function login($user)
 {
     $_SESSION['email'] = $user['email'];
     setcookie('email', $user['email'], time() + 3600 * 24 * 7, "/");
 }
+
 
 function logout()
 {
@@ -173,8 +176,7 @@ function logout()
     }
     session_destroy();
     setcookie('email', null, time() -1);
-    redirect('register.php');
-
+    redirect('home.php');
 }
 
 ?>
