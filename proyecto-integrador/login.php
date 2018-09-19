@@ -34,7 +34,10 @@ if($_POST) {
     <!-- Header -->
     <header class="bg-dark text-white">
             <div class="container text-center">
-                <h1>Inicie Sesión</h1>
+                <br>
+                <br>
+                <br>
+                <br>
                 <p class="lead">La plataforma online numero uno de trueques en la Argentina</p>
             </div>
     </header>

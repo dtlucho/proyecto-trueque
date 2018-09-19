@@ -42,7 +42,11 @@ if($_POST){
     <!-- Header -->
     <header class="bg-dark text-white">
         <div class="container text-center">
-            <h1>Registrate en TruequeYa</h1>
+            <br>
+            <br>
+            <br>
+            <br>
+        
             <p class="lead">Estas un paso mas cerca de encontrar eso que tanto estabas buscando!</p>
         </div>
     </header>

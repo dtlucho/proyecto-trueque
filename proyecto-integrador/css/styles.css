@@ -1,9 +1,9 @@
 header {
-    padding: 154px 0 100px;
+    padding: 25px;
   }
   
 section {
-padding: 150px 0;
+padding: 0px ;
 }
  
 .bg-purple {
@@ -47,8 +47,7 @@ div button:hover {
   box-shadow: none;
   background-color: rgba(125, 18, 98, 1);
 }
-
-img {
-    border: 6px rgb(42, 39, 82) solid;
+.logo {
+    width:50px;
+    border-radius:60px;
 }
-

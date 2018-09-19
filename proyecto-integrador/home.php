@@ -23,7 +23,9 @@ require 'funciones.php';
     <!-- Header -->
     <header class="bg-dark text-white">
             <div class="container text-center">
-                <h1>Bienvenidos a TruequeYa</h1>
+                <br>
+                <br>
+                <h2>Bienvenidos a TruequeYa</h2>
                 <p class="lead">¡La plataforma online número uno de intercambios en la Argentina!</p>
             </div>
     </header>
@@ -86,7 +88,7 @@ require 'funciones.php';
                         <li>Ponerse de acuerdo para hacer intercambio en vivo o hacer envio.</li>
                         <br>
                     </ol>
-                        <h5>Si te quedó alguna duda consultá nuestra sección de  <a href="faqs.html">Preguntas frecuentes</a>.</h5>
+                        <h5>Si te quedó alguna duda consultá nuestra sección de  <a href="faqs.php">Preguntas frecuentes</a>.</h5>
                 </div>
             </div>
         </div> 

@@ -21,7 +21,10 @@ require 'funciones.php';
     <!-- Header -->
     <header class="bg-dark text-white">
         <div class="container text-center">
-            <h1>Preguntas Frecuentes</h1>
+                <br>
+                <br>
+                <br>
+            <h2>Preguntas Frecuentes</h2>
         </div>
     </header>
 
