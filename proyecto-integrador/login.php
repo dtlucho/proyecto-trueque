@@ -55,7 +55,7 @@ if($_POST) {
                                 <p class="hint-text">Introduzca su correo y contraseña.</p>
                             </div>	
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+                                <input type="email" class="form-control" name="email" placeholder="Email" required="required" value="<?= isset($errors["email"]) ? "" : old("email") ?>">
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" name="password" placeholder="Contraseña" required="required">
