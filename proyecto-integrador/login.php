@@ -11,7 +11,7 @@ if($_POST) {
     if($usuario !== null) {
         if(password_verify($_POST['password'], $usuario['password']) == true) {
             login($usuario);
-            redirect('home.php');
+            redirect('perfil.php');
         }
     }
 }

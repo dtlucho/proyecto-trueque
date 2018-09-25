@@ -25,6 +25,10 @@
                 <li class="nav-item">
                     <a class="nav-link font-white" href="logout.php">Cerrar Sesion</a>
                 </li> 
+
+                <li class="nav-item">
+                    <a class="nav-link font-white" href="perfil.php">Tu perfil</a>
+                </li> 
                 <?php endif ; ?>
                 
             </ul>

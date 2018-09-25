@@ -51,3 +51,9 @@ div button:hover {
     width:50px;
     border-radius:60px;
 }
+
+.avatar
+{
+    width: 100px;
+    border-radius: 60px;
+}
