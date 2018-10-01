@@ -39,6 +39,7 @@
                 <div class="card col-4">
                     <br>
                     <br>
+                    <br>
                     <?php if(!isset($user['avatar'])):?>
                     <img class="avatar" class="card-img-top" src="images/silueta-hombre.jpg" alt="avatar default">
                     <?php else: ?>
