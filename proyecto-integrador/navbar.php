@@ -23,6 +23,10 @@
                 <?php else : ?>
 
                 <li class="nav-item">
+                    <a class="nav-link font-white" href="products.php">Productos</a>
+                </li> 
+
+                <li class="nav-item">
                     <a class="nav-link font-white" href="logout.php">Cerrar Sesion</a>
                 </li> 
 
