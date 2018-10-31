@@ -1,18 +1,22 @@
 <?php
-    require 'funciones.php';
+    require 'loader.php';
 
-   
-
+    if (Auth::guest()) {
+        redirect('login.php');
+    }
 
     if(isset($_SESSION['email'])) {
-        $user = dbEmailSearch($_SESSION['email']);
 
-        $username = $user['username'];
-        
-        if(array_key_exists('avatar', $user)){
-            $avatar = $user['avatar'];
+        $usuarioArray = $db->emailDbSearch($_SESSION['email']);
+        $user = new User($usuarioArray['username'], $usuarioArray['email'], $usuarioArray['password'], $usuarioArray['role']);
+
+        $username = $user->getUsername();
+
+        if ($user->getavatar() !== null) {
+            $avatar = $user->getAvatar();
         }
     }
+
 ?>
 
 <!DOCTYPE html>

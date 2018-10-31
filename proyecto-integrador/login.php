@@ -1,18 +1,19 @@
 <?php
-
-require 'funciones.php';
+require 'loader.php';
 
 if(check()) {
     redirect('home.php');
 }
 
 if($_POST) {
-    $usuario = dbEmailSearch($_POST['email']);
-    if($usuario !== null) {
-        if(password_verify($_POST['password'], $usuario['password']) == true) {
-            login($usuario);
+    $usuarioArray = $db->emailDbSearch($_POST['email']);
+        $user = new User($usuarioArray['username'], $usuarioArray['email'], $usuarioArray['password'], $usuarioArray['role']);
+        $arrayErr = [];
+    
+        if($usuarioArray !== null) {
+            $error = "Nombre de usuario o pass incorrectos";
+            !Validate::loginValidate($_POST['password'], $user) ? $arrayErr['login'] = $error : Auth::login($user);
             redirect('perfil.php');
-        }
     }
 }
 

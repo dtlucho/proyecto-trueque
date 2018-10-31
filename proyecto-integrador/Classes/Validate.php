@@ -9,7 +9,7 @@ class Validate
 
     public static function imageValidate($file)
     {
-        //...
+        return $_FILES["avatar"]["error"] == UPLOAD_ERR_OK;
     }
 
     public static function passwordMatch($data)

@@ -1,29 +1,34 @@
 <?php
-require("funciones.php");
+require("loader.php");
 
 if($_POST){
-    $errors = validate($_POST);
-    $user = createUser($_POST);
+    $errors = [];
+
+    $usuario = new User($_POST['username'], $_POST['email'], $_POST['password']);
     
-   
-    
+    $errors = Validate::registerValidate($usuario, $_POST);
+
     if($_FILES['avatar']['error'] == 0) {
-        
-        $avatarErrors = validateAvatar($_POST);
-        $user['avatar'] = photoPath($_POST);
-        
-        if(!empty($avatarErrors)) {
-            $errors = array_merge($errors, $avatarErrors); 
+        $errors = $db->saveAvatar($_POST);
+        if(count($errors) === 0 ) {
+            $avatar = $db->photopath($_POST);
+            $usuario->setAvatar($avatar);
+
         }
     }
 
-    if(count($errors) == 0) {  
-        
-        saveUser($user);
+    if (count($errors) === 0) {
+        $usuarioArray = $db->createUser($usuario);
+        $db->saveUser($usuarioArray);
         redirect('login.php');
     }
 
+    $usuario = createUser($_POST);
+
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
