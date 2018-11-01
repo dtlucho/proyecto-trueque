@@ -44,7 +44,7 @@
                     <br>
                     <br>
                     <br>
-                    <?php if(!isset($user['avatar'])):?>
+                    <?php if(!isset($username['avatar'])) : ?>
                     <img class="avatar" class="card-img-top" src="images/silueta-hombre.jpg" alt="avatar default">
                     <?php else: ?>
                     <img class="avatar" class="card-img-top" src="img/<?=$avatar?>" alt="avatar">

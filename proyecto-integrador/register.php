@@ -11,7 +11,7 @@ if($_POST){
     if($_FILES['avatar']['error'] == 0) {
         $errors = $db->saveAvatar($_POST);
         if(count($errors) === 0 ) {
-            $avatar = $db->photopath($_POST);
+            $avatar = $db->photoPath($_POST);
             $usuario->setAvatar($avatar);
 
         }
