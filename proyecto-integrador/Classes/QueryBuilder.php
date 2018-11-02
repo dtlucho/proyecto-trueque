@@ -24,20 +24,19 @@ class QueryBuilder {
     public static function createUser($usuario, $pdo)
     {
         $username = $usuario->getUsername();
-        $email = $usuario->getUsername();
+        $email = $usuario->getEmail();
         $password = $usuario->getPassword();
         $role = $usuario->getRole();
 
-        $stmt = $pdo->prepare("INSERT INTO users (username, email, password, role) VALUES (:username :email, :password, role)");
+        $stmt = $pdo->prepare ("INSERT INTO users(username, email, password, role) VALUES (:username, :email, :password, :role)");
 
-        $stmt->bindParam(':username', $role, PDO::PARAM_STR);
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->bindParam(':password', $password, PDO::PARAM_STR);
         $stmt->bindParam(':role', $role, PDO::PARAM_INT);
 
         $stmt->execute();
-
-        $results = $query->fetch(PDO::FETCH_ASSOC);
+        
     }
 
 }
