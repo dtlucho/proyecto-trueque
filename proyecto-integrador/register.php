@@ -2,30 +2,40 @@
 require("loader.php");
 
 if($_POST){
-    $errors = [];
 
-    $usuario = new User($_POST['username'], $_POST['email'], $_POST['password']);
-    
+    $usuario = new User($_POST['username'],$_POST['email'], $_POST['password']);
+
     $errors = Validate::registerValidate($usuario, $_POST);
 
-    if($_FILES['avatar']['error'] == 0) {
-        $errors = $db->saveAvatar($_POST);
-        if(count($errors) === 0 ) {
-            $avatar = $db->photoPath($_POST);
-            $usuario->setAvatar($avatar);
-
-        }
-    }
-
-    if (count($errors) === 0) {
-        $usuarioArray = $db->createUser($usuario);
-        $db->saveUser($usuarioArray);
-        redirect('login.php');
-    }
-
-    $usuario = createUser($_POST);
-
+    QueryBuilder::createUser($usuario, $pdo);
 }
+
+
+// if($_POST){
+//     $errors = [];
+
+//     $usuario = new User($_POST['username'], $_POST['email'], $_POST['password']);
+    
+//     $errors = Validate::registerValidate($usuario, $_POST);
+
+//     if($_FILES['avatar']['error'] == 0) {
+//         $errors = $db->saveAvatar($_POST);
+//         if(count($errors) === 0 ) {
+//             $avatar = $db->photoPath($_POST);
+//             $usuario->setAvatar($avatar);
+
+//         }
+//     }
+
+//     if (count($errors) === 0) {
+//         $usuarioArray = $db->createUser($usuario);
+//         $db->saveUser($usuarioArray);
+//         redirect('login.php');
+//     }
+
+//     $usuario = createUser($_POST);
+
+// }
 
 
 

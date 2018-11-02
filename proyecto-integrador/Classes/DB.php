@@ -1,52 +1,20 @@
 <?php
 
-abstract class DB
-{
-    abstract public function dbConnect();
-    abstract public function emailDbSearch($email);
-    abstract public function saveUser(User $user);
+class DBConnector {
 
-    public function photoPath($data)
+public static function ConnectDB()
     {
-
-        $username = $data["username"];
-        $nombre = $_FILES["avatar"]["name"];
-        $ext = pathinfo($nombre, PATHINFO_EXTENSION);
-        $miArchivo = "perfil" . $username . "." . $ext;
-
-        return $miArchivo;
-    }
-
+        $dsn = 'mysql:host=127.0.0.1;dbname=trueque_db;port=3306;charset=utf8mb4';
+        $db_user = 'root';
+        $db_pass = '';
+        $opt = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
     
-    public function saveAvatar($data)
-    {
-        $errores = [];
-
-        $username = $data["username"];
-        
-        if($_FILES["avatar"]["error"] == UPLOAD_ERR_OK) {
-            $nombre = $_FILES["avatar"]["name"];
-            $archivo = $_FILES["avatar"]["tmp_name"];
-            
-            $ext = pathinfo($nombre, PATHINFO_EXTENSION);
-
-            if($ext != "jpg" && $ext != "png" && $ext != "jpeg") {
-                $errores["avatar"] = "Solo acepto formatos jpg y png";
-                return $errores;
-            }
-            
-            $miArchivo = dirname(__FILE__);
-            $miArchivo = $miArchivo . "/img/";
-            $miArchivo = $miArchivo . "perfil" . $username . "." . $ext;
-
-            move_uploaded_file($archivo, $miArchivo);
-
-        } else {
-            $errores["avatar"] = "Hubo un error al procesar el archivo";
+        try { 
+            return $pdo = new PDO($dsn, $db_user, $db_pass, $opt);
+        } catch(PDOException $error) {
+            $errores = $error->getMessage();
+            return $errores;
         }
-
-        return $errores;
-
     }
 
 }

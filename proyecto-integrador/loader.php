@@ -3,9 +3,12 @@
 require 'helpers.php';
 require 'Classes/User.php';
 require 'Classes/Auth.php';
-require 'Classes/JSONDB.php';
+require 'Classes/Db.php';
+require 'Classes/QueryBuilder.php';
 require 'Classes/Validate.php';
 
-$db = new JSONDB('users.json');
+$pdo = DBConnector::ConnectDB();
 
-Auth::set();
+$usuarios = QueryBuilder::index("categories", $pdo);
+
+var_dump($usuarios);
