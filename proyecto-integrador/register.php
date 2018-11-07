@@ -5,11 +5,16 @@ require("loader.php");
 
 if($_POST){
 
-    $usuario = new User($_POST['username'],$_POST['email'], $_POST['password']);
+    $usuario = new User($_POST['name'], $_POST['username'], $_POST['email'], $_POST['password']);
 
     $errors = Validate::registerValidate($usuario, $_POST);
 
-    QueryBuilder::createUser($usuario, $pdo);
+    if(count($errors)=== 0){
+        QueryBuilder::createUser($usuario, $pdo);
+        
+        redirect('login.php');
+    }
+    
 }
 
 

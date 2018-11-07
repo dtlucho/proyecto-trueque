@@ -4,9 +4,9 @@ class DBConnector {
 
 public static function ConnectDB()
     {
-        $dsn = 'mysql:host=127.0.0.1;dbname=trueque_db;port=3306;charset=utf8mb4';
+        $dsn = 'mysql:host=127.0.0.1;dbname=trueque_db;port=8889;charset=utf8mb4';
         $db_user = 'root';
-        $db_pass = '';
+        $db_pass = 'root';
         $opt = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
     
         try { 

@@ -5,17 +5,23 @@ if(check()) {
     redirect('home.php');
 }
 
-if($_POST) {
-    $usuarioArray = $db->emailDbSearch($_POST['email']);
-        $user = new User($usuarioArray['username'], $usuarioArray['email'], $usuarioArray['password'], $usuarioArray['role']);
-        $arrayErr = [];
+  if($_POST){
+     $usuario = QueryBuilder::buscarPorEmail($pdo, $_POST['email']);
+     var_dump($user);
+  }
+
+//   if($_POST) {
+
+//       $usuarioArray = $db->emailDbSearch($_POST['email']);
+//           $user = new User($usuarioArray['username'], $usuarioArray['email'], $usuarioArray['password'], $usuarioArray['role']);
+//           $arrayErr = [];
     
-        if($usuarioArray !== null) {
-            $error = "Nombre de usuario o pass incorrectos";
-            !Validate::loginValidate($_POST['password'], $user) ? $arrayErr['login'] = $error : Auth::login($user);
-            redirect('perfil.php');
-    }
-}
+//           if($usuarioArray !== null) {
+//               $error = "Nombre de usuario o pass incorrectos";
+//               !Validate::loginValidate($_POST['password'], $user) ? $arrayErr['login'] = $error : Auth::login($user);
+//               redirect('perfil.php');
+//       }
+//   }
 
 ?>
 

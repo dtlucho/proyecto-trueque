@@ -27,27 +27,33 @@ class Validate
     {
         $errors = [];
 
+        $name = $user->getName();
+
+        if($name == ""){
+            $errors['name'] = "No podes dejar el nombre vacio";
+        }
+
         $username = $user->getUsername();
 
         if($username == "") {
-            $errors['username'] = "Capo me dejaste el username vacio";
+            $errors['username'] = "No podes dejar el nombre de usuario vacio";
         }
 
         $email = $user->getEmail();
 
         if($email == "") {
-            $errors['email'] = "Me dejaste el email vacio!";
+            $errors['email'] = "No podes dejar el email vacio";
         } elseif(!self::emailValidate($email)) {
-            $errors['email'] = "El email no es valido, crack";
+            $errors['email'] = "El email no es valido";
         }
 
         $password = trim($user->getPassword());
         $cpassword = trim($data['cpassword']);
 
         if($password == "") {
-            $errors['password'] = "Me dejaste la pass vacia!";
+            $errors['password'] = "No podes dejar la contraseña vacia";
         } elseif($password < 4) {
-            $errors['password'] = "La pass debe ser de al menos 4 caracteres!";
+            $errors['password'] = "La contraseña debe tener almenos 4 caracteres";
         }
 
         if(!self::passwordMatch($data)) {
@@ -71,5 +77,4 @@ class Validate
         return self::passwordValidate($password, $user->getPassword());
 
     }
-
 }
