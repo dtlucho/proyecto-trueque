@@ -1,6 +1,8 @@
 <?php
 require("loader.php");
 
+
+
 if($_POST){
 
     $usuario = new User($_POST['username'],$_POST['email'], $_POST['password']);
@@ -9,6 +11,7 @@ if($_POST){
 
     QueryBuilder::createUser($usuario, $pdo);
 }
+
 
 
 // if($_POST){

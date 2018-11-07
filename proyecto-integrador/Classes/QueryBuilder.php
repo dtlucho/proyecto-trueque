@@ -29,7 +29,7 @@ class QueryBuilder {
         $role = $usuario->getRole();
 
         $stmt = $pdo->prepare ("INSERT INTO users(username, email, password, role) VALUES (:username, :email, :password, :role)");
-
+        
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->bindParam(':password', $password, PDO::PARAM_STR);

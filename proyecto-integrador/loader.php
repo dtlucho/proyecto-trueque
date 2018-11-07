@@ -9,6 +9,5 @@ require 'Classes/Validate.php';
 
 $pdo = DBConnector::ConnectDB();
 
-$usuarios = QueryBuilder::index("categories", $pdo);
 
-var_dump($usuarios);
+
