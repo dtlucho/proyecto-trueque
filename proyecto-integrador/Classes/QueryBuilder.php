@@ -47,9 +47,14 @@ class QueryBuilder {
 
     public static function buscarPorEmail($pdo, $email)
     {
-        $stmt = $pdo->query("SELECT * FROM users WHERE email = $email");
+        $stmt = $pdo->query("SELECT * FROM users WHERE email = '$email'");
         $stmt->execute();
+        $array = $stmt->fetch(PDO::FETCH_ASSOC);
+        //$array = $array;
+        //String $name, String $username, String $email, String $password, String $avatar = null
+        $usuario = new User($array['name'], $array['username'], $array['email'], $array['password']);
 
+        return $usuario;
     }
 
 }

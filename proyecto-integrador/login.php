@@ -1,14 +1,24 @@
 <?php
 require 'loader.php';
 
-if(check()) {
-    redirect('home.php');
-}
+    if(check()) {
+        redirect('home.php');
+    }
 
-  if($_POST){
-     $usuario = QueryBuilder::buscarPorEmail($pdo, $_POST['email']);
-     var_dump($user);
-  }
+    $error = "";
+
+    if($_POST){
+        $usuario = QueryBuilder::buscarPorEmail($pdo, $_POST['email']);
+    $password = $usuario->getPassword();
+    var_dump(password_verify($_POST['password'], $password));
+
+    if(password_verify($_POST['password'], $password) == true) {
+        header("Location:perfil.php");
+        exit;
+    } else {
+        $error = "Usuario o contraseña incorrectos";
+    }
+}
 
 //   if($_POST) {
 
@@ -54,6 +64,11 @@ if(check()) {
     <section class="bg-home">
         <div class="container">
             <div class="row">
+            <?php if(!$error == ""): ?>
+                <div class="alert alert-danger">
+                <h4> <?=$error ?></h4>
+                </div>
+            <?php endif ?>
                 <div class="col-8 mx-auto bg-light rounded">
                     <div class="signup-form">
                         <form action="" method="post" enctype="multipart/form-data">

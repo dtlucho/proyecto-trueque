@@ -1,21 +1,23 @@
 <?php
     require 'loader.php';
 
-    if (Auth::guest()) {
-        redirect('login.php');
-    }
+    echo 'LLEGUE A LOGUEARME!';
+    exit;
+    // if (Auth::guest()) {
+    //     redirect('login.php');
+    // }
 
-    if(isset($_SESSION['email'])) {
+    // if(isset($_SESSION['email'])) {
 
-        $usuarioArray = $db->emailDbSearch($_SESSION['email']);
-        $user = new User($usuarioArray['username'], $usuarioArray['email'], $usuarioArray['password'], $usuarioArray['role']);
+    //     $usuarioArray = $db->emailDbSearch($_SESSION['email']);
+    //     $user = new User($usuarioArray['username'], $usuarioArray['email'], $usuarioArray['password'], $usuarioArray['role']);
 
-        $username = $user->getUsername();
+    //     $username = $user->getUsername();
 
-        if ($user->getavatar() !== null) {
-            $avatar = $user->getAvatar();
-        }
-    }
+    //     if ($user->getavatar() !== null) {
+    //         $avatar = $user->getAvatar();
+    //     }
+    // }
 
 ?>
 
